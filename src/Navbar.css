@@ -1,0 +1,29 @@
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 30px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all .5s ease-in;
+}
+
+.nav-black {
+  background-color: #111111;
+}
+
+.calflix-logo {
+  position: fixed;
+  left: 20px;
+  width: 100px;
+  object-fit: contain;
+}
+
+.calvin-icon {
+  position: fixed;
+  right: 20px;
+  width: 50px;
+  object-fit: contain;
+}
