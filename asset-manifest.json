@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Callyhobbes/calflix/static/css/main.881aabbd.chunk.css",
+    "main.js": "/Callyhobbes/calflix/static/js/main.8d3ba3f3.chunk.js",
+    "main.js.map": "/Callyhobbes/calflix/static/js/main.8d3ba3f3.chunk.js.map",
+    "runtime-main.js": "/Callyhobbes/calflix/static/js/runtime-main.4aa385ee.js",
+    "runtime-main.js.map": "/Callyhobbes/calflix/static/js/runtime-main.4aa385ee.js.map",
+    "static/js/2.5dd80cd6.chunk.js": "/Callyhobbes/calflix/static/js/2.5dd80cd6.chunk.js",
+    "static/js/2.5dd80cd6.chunk.js.map": "/Callyhobbes/calflix/static/js/2.5dd80cd6.chunk.js.map",
+    "static/js/3.f0ad5808.chunk.js": "/Callyhobbes/calflix/static/js/3.f0ad5808.chunk.js",
+    "static/js/3.f0ad5808.chunk.js.map": "/Callyhobbes/calflix/static/js/3.f0ad5808.chunk.js.map",
+    "index.html": "/Callyhobbes/calflix/index.html",
+    "static/css/main.881aabbd.chunk.css.map": "/Callyhobbes/calflix/static/css/main.881aabbd.chunk.css.map",
+    "static/js/2.5dd80cd6.chunk.js.LICENSE.txt": "/Callyhobbes/calflix/static/js/2.5dd80cd6.chunk.js.LICENSE.txt",
+    "static/media/calflix_logo.33751707.png": "/Callyhobbes/calflix/static/media/calflix_logo.33751707.png",
+    "static/media/calvin_icon.fe61c786.jpg": "/Callyhobbes/calflix/static/media/calvin_icon.fe61c786.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4aa385ee.js",
+    "static/js/2.5dd80cd6.chunk.js",
+    "static/css/main.881aabbd.chunk.css",
+    "static/js/main.8d3ba3f3.chunk.js"
+  ]
+}
