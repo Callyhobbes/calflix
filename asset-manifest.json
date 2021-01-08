@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/calflix/static/css/main.881aabbd.chunk.css",
-    "main.js": "/calflix/static/js/main.8d3ba3f3.chunk.js",
-    "main.js.map": "/calflix/static/js/main.8d3ba3f3.chunk.js.map",
+    "main.js": "/calflix/static/js/main.e9503edb.chunk.js",
+    "main.js.map": "/calflix/static/js/main.e9503edb.chunk.js.map",
     "runtime-main.js": "/calflix/static/js/runtime-main.ead95b77.js",
     "runtime-main.js.map": "/calflix/static/js/runtime-main.ead95b77.js.map",
     "static/js/2.929ce25a.chunk.js": "/calflix/static/js/2.929ce25a.chunk.js",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.ead95b77.js",
     "static/js/2.929ce25a.chunk.js",
     "static/css/main.881aabbd.chunk.css",
-    "static/js/main.8d3ba3f3.chunk.js"
+    "static/js/main.e9503edb.chunk.js"
   ]
 }
