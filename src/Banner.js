@@ -29,7 +29,7 @@ function Banner() {
       className="banner"
       style={{
         backgroundSize: "cover",
-        backgroundImage: `url(${base_URL}${movie?.backdrop_path})`,
+        backgroundImage: `linear-gradient(180deg, transparent, rgba(37, 37, 37, .6), #111), url(${base_URL}${movie?.backdrop_path})`,
         backgroundPosition: "center center"
       }}
     >
@@ -45,7 +45,6 @@ function Banner() {
       {/* {description} */}
         <h3 className="banner-description">{truncate(movie?.overview, 150)}</h3>
       </div>
-      <div className="banner-fadeout"></div>
     </header>
   )
 }

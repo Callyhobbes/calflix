@@ -34,16 +34,6 @@ function Row({ title, fetchURL, isLargeRow }) {
   const handleClick = (movie) => {
     if (trailerUrl) {
       setTrailerUrl('');
-      // movieTrailer(movie.name || movie.title || "")
-      //   .then(url => {
-      //     const urlParams = new URLSearchParams(new URL(url).search);
-      //     // https://www.youtube.com/watch?v=thisIsTheEndPoint so get the 'v'
-      //     setTrailerUrl(urlParams.get('v'));
-      //   })
-      //   .catch((error) => {
-      //     console.log(error)
-      //     console.log(movie.name || movie.title);
-      //   })
     } else {
       movieTrailer(movie.name || movie.title || "")
         .then(url => {
@@ -53,16 +43,13 @@ function Row({ title, fetchURL, isLargeRow }) {
         })
         .catch((error) => {
           console.log(error)
-          console.log(movie.name || movie.title);
         })
     };
   };
 
   return (
     <div className="row">
-      {/*Title*/}
       <h2>{title}</h2>
-
       <div className="row-posters">
         {/* Row posters */}
         {movies.map((movie) => (

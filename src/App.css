@@ -4,7 +4,11 @@
 }
 
 html {
-  font-family: 'Arial', sans-serif;
+  font-family: Helvetica, sans-serif;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 .app {
