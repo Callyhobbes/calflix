@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/calflix/static/css/main.76a3c26a.chunk.css",
-    "main.js": "/calflix/static/js/main.c0489a73.chunk.js",
-    "main.js.map": "/calflix/static/js/main.c0489a73.chunk.js.map",
+    "main.css": "/calflix/static/css/main.f238de1a.chunk.css",
+    "main.js": "/calflix/static/js/main.4b1270e2.chunk.js",
+    "main.js.map": "/calflix/static/js/main.4b1270e2.chunk.js.map",
     "runtime-main.js": "/calflix/static/js/runtime-main.af51daf0.js",
     "runtime-main.js.map": "/calflix/static/js/runtime-main.af51daf0.js.map",
     "static/js/2.c840231d.chunk.js": "/calflix/static/js/2.c840231d.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.4c27f382.chunk.js": "/calflix/static/js/3.4c27f382.chunk.js",
     "static/js/3.4c27f382.chunk.js.map": "/calflix/static/js/3.4c27f382.chunk.js.map",
     "index.html": "/calflix/index.html",
-    "static/css/main.76a3c26a.chunk.css.map": "/calflix/static/css/main.76a3c26a.chunk.css.map",
+    "static/css/main.f238de1a.chunk.css.map": "/calflix/static/css/main.f238de1a.chunk.css.map",
     "static/js/2.c840231d.chunk.js.LICENSE.txt": "/calflix/static/js/2.c840231d.chunk.js.LICENSE.txt",
     "static/media/calflix_logo.33751707.png": "/calflix/static/media/calflix_logo.33751707.png",
     "static/media/calvin_icon.fe61c786.jpg": "/calflix/static/media/calvin_icon.fe61c786.jpg"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.af51daf0.js",
     "static/js/2.c840231d.chunk.js",
-    "static/css/main.76a3c26a.chunk.css",
-    "static/js/main.c0489a73.chunk.js"
+    "static/css/main.f238de1a.chunk.css",
+    "static/js/main.4b1270e2.chunk.js"
   ]
 }
