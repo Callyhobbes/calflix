@@ -27,19 +27,19 @@ class App extends Component {
         <Loader loader={this.state.loader} handleChange={this.handleChange}/>
         <Navbar />
         <Banner />
+        <Row title="Trending Now" fetchURL={request.fetchTrending} />
+        <Row title="Top Rated" fetchURL={request.fetchTopRated} />
         <Row 
         title="Netflix Originals" 
         fetchURL={request.fetchNetflixOriginals}
         isLargeRow={true}
-      />
-      <Row title="Trending Now" fetchURL={request.fetchTrending} />
-      <Row title="Top Rated" fetchURL={request.fetchTopRated} />
-      <Row title="Action Movies" fetchURL={request.fetchActionMovies} />
-      <Row title="Comedy Movies" fetchURL={request.fetchComedyMovies} />
-      <Row title="Horror Movies" fetchURL={request.fetchHorrorMovies} />
-      <Row title="Romance Movies" fetchURL={request.fetchRomanceMovies} />
-      <Row title="Documentaries" fetchURL={request.fetchDocumentaries} />
-    </div>
+        />
+        <Row title="Action Movies" fetchURL={request.fetchActionMovies} />
+        <Row title="Comedy Movies" fetchURL={request.fetchComedyMovies} />
+        <Row title="Horror Movies" fetchURL={request.fetchHorrorMovies} />
+        <Row title="Romance Movies" fetchURL={request.fetchRomanceMovies} />
+        <Row title="Documentaries" fetchURL={request.fetchDocumentaries} />
+      </div>
     )
   }
 }

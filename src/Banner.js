@@ -37,13 +37,13 @@ function Banner() {
       <div className="banner-content">
       {/* {title} */}
         <h2 className="banner-title">{movie.title || movie.name}</h2>
-      {/* {div > 2 buttons} */}
-        <div className="banner-buttons">
-          <button className="banner-button">Play</button>
-          <button className="banner-button">My List</button>
-        </div>
       {/* {description} */}
         <h3 className="banner-description">{truncate(movie?.overview, 150)}</h3>
+        {/* {div > 2 buttons} */}
+        <div className="banner-buttons">
+          <button className="banner-button play"><i class="fas fa-play"></i>Play</button>
+          <button className="banner-button info"><i class="fas fa-info"></i>More Info</button>
+        </div>
       </div>
     </header>
   )
