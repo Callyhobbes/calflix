@@ -30,7 +30,7 @@ function Banner() {
       style={{
         backgroundSize: "cover",
         backgroundImage: `linear-gradient(180deg, transparent, rgba(37, 37, 37, .6), #111), url(${base_URL}${movie?.backdrop_path})`,
-        backgroundPosition: "center center"
+        backgroundPosition: "50% 25%"
       }}
     >
       {/* {background image} */}
