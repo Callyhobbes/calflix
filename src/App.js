@@ -1,16 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
+import Loader from './Loader.js';
 import Banner from './Banner.js';
 import Row from './Row.js';
 import Navbar from './Navbar'
 import request from './request.js';
 
-function App() {
-  return (
-    <div className="app">
-      <Navbar />
-      <Banner />
-      <Row 
+class App extends Component {
+  
+  constructor() {
+    super();
+    this.state = {
+      loader: false
+    };
+  }
+
+  handleChange = () => {
+    this.setState({ 
+      loader: true
+    });
+  };
+
+  render() { 
+    return (
+      <div className="app">
+        <Loader loader={this.state.loader} handleChange={this.handleChange}/>
+        <Navbar />
+        <Banner />
+        <Row 
         title="Netflix Originals" 
         fetchURL={request.fetchNetflixOriginals}
         isLargeRow={true}
@@ -23,7 +40,8 @@ function App() {
       <Row title="Romance Movies" fetchURL={request.fetchRomanceMovies} />
       <Row title="Documentaries" fetchURL={request.fetchDocumentaries} />
     </div>
-  );
+    )
+  }
 }
 
 export default App;

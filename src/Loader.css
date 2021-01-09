@@ -1,0 +1,104 @@
+.logo {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  transition: all .5s ease-out;
+}
+
+.calflix {
+  position: relative;
+  width: 420px;
+  height: 450px;
+  overflow: hidden;
+  transform: scale(.8);
+  cursor: pointer;
+}
+
+.calflix::after,
+h3::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, #000, #000);
+  z-index: 3;
+  animation: unveil 2s linear forwards;
+}
+
+@keyframes unveil {
+  0% {
+    right: 0;
+  }
+  100% {
+    right: -400%;
+  }
+}
+
+.calflix span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 120px;
+}
+
+.calflix span:nth-child(1) {
+  background: #b00612;
+  top: 0;
+  border-top-left-radius: 50px;
+}
+
+.calflix span:nth-child(2) {
+  background: #e50815;
+  top: 165px;
+  left: -165px;
+  width: 450px;
+  z-index: 1;
+  transform: rotate(90deg);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 1);
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.calflix span:nth-child(3) {
+  background: #b00612;
+  bottom: 0;
+  border-bottom-left-radius: 50px;
+}
+
+.logo-text {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: sans-serif;
+  color: #fff;
+  font-size: 60px;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  overflow: hidden;
+}
+
+.hide {
+  visibility: visible;
+  animation: fade-out 1s ease forwards;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
