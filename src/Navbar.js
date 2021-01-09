@@ -21,6 +21,7 @@ function Navbar() {
 
   return (
     <div className={`nav ${show && "nav-black"}`}>
+      <h1 className="sr-only">Calflix</h1>
       <img className="calflix-logo" src={logo} alt="Calflix Logo"></img>
       <img className="calvin-icon" src={avatar} alt="User Icon"/>
     </div>

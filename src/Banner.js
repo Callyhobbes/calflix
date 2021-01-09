@@ -36,13 +36,13 @@ function Banner() {
       {/* {background image} */}
       <div className="banner-content">
       {/* {title} */}
-        <h2 className="banner-title">{movie.title || movie.name}</h2>
+        <h2>{movie.title || movie.name}</h2>
       {/* {description} */}
-        <h3 className="banner-description">{truncate(movie?.overview, 150)}</h3>
+        <h3>{truncate(movie?.overview, 150)}</h3>
         {/* {div > 2 buttons} */}
         <div className="banner-buttons">
-          <button className="banner-button play"><i class="fas fa-play"></i>Play</button>
-          <button className="banner-button info"><i class="fas fa-info"></i>More Info</button>
+          <button className="play"><i class="fas fa-play"></i>Play</button>
+          <button className="info"><i class="fas fa-info"></i>More Info</button>
         </div>
       </div>
     </header>

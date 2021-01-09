@@ -55,7 +55,7 @@ function Row({ title, fetchURL, isLargeRow }) {
         {/* Row posters */}
         {movies.map((movie) => (
           <div 
-            className="contenti"
+            className="content"
             onClick={() => handleClick(movie)}
           >
             <img

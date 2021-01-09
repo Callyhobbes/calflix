@@ -82,7 +82,7 @@ h3::before {
   text-align: center;
   font-family: sans-serif;
   color: #fff;
-  font-size: 60px;
+  font-size: 6rem;
   text-transform: uppercase;
   letter-spacing: 10px;
   overflow: hidden;
@@ -100,5 +100,27 @@ h3::before {
   to {
     visibility: hidden;
     opacity: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .calflix {
+    width: 336px;
+    height: 360px;
+  }
+
+  .calflix span {
+    height: 100px;
+  }
+
+  .calflix span:nth-child(2) {
+    top: 121px;
+    left: -122px;
+    width: 360px;
+    height: 117px;
+  }
+
+  .logo-text {
+    font-size: 4.5rem;
   }
 }
