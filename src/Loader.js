@@ -6,7 +6,7 @@ class Loader extends Component {
   render() { 
     return (
       <div class={`logo ${this.props.loader ? 'hide' : ''}`}>
-        <div class="calflix" onClick={this.props.handleChange}>
+        <div class="calflix">
           <span></span>
           <span></span>
           <span></span>

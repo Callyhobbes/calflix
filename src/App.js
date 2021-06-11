@@ -15,16 +15,24 @@ class App extends Component {
     };
   }
 
-  handleChange = () => {
-    this.setState({ 
-      loader: true
-    });
-  };
+  // Set intro fade
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        loader: true
+      })
+    }, 3000);
+  }
+
+  // clear intro
+  componentWillUnmount() {
+    clearTimeout()
+  }
 
   render() { 
     return (
       <div className="app">
-        <Loader loader={this.state.loader} handleChange={this.handleChange}/>
+        <Loader loader={this.state.loader} />
         <Navbar />
         <Banner />
         <Row title="Trending Now" fetchURL={request.fetchTrending} />
