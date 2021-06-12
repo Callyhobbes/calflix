@@ -1,12 +1,11 @@
 import { Component } from 'react';
-import './Loader.css';
 
 class Loader extends Component {
 
   render() { 
     return (
-      <div class={`logo ${this.props.loader ? 'hide' : ''}`}>
-        <div class="calflix">
+      <div className={`logo ${this.props.loader ? 'hide' : ''}`}>
+        <div className="calflix">
           <span></span>
           <span></span>
           <span></span>

@@ -1,0 +1,91 @@
+.Modal {
+  position: absolute;
+  z-index: 10000;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  background-color: #181818;
+  color: #fff;
+  border-radius: 10px;
+  img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    mask-image: linear-gradient(#181818 40%, transparent 100%)
+  }
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  background-color: rgba(17, 17, 17, .7);
+}
+
+.movie-content {
+  margin: 0 15px;
+  ul {
+    display: flex;
+  }
+  li {
+    list-style: none;
+    padding: 2px 5px 2px 0px;
+  }
+  .border-item {
+    border: 1px solid white;
+    padding: 2px 5px;
+    margin: 0 10px;
+  }
+  h2, ul, p {
+    margin: 10px 0;
+  }
+  p span {
+    color: #777;
+    font-size: 1.4rem;
+    font-style: italic;
+  }
+  button {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    color: white;
+    background-color: #181818;
+    border: none;
+    top: 15px;
+    right: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}
+
+.exit {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+em {
+  font-size: 1.6rem;
+  text-decoration: underline;
+  margin-left: 8px;
+}
+
+@media (max-width: 700px) {
+  .Modal {
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+  }
+}

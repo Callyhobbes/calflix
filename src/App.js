@@ -1,38 +1,26 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { useState, useEffect } from 'react';
 import Loader from './Loader.js';
 import Banner from './Banner.js';
 import Row from './Row.js';
 import Navbar from './Navbar'
 import request from './request.js';
+import './styling/App.scss'
 
-class App extends Component {
-  
-  constructor() {
-    super();
-    this.state = {
-      loader: false
-    };
-  }
+function App(props)  {
 
-  // Set intro fade
-  componentDidMount() {
+  const [loader, setLoader] = useState(false);
+
+  useEffect(() => {
+    const timer = 0;
     setTimeout(() => {
-      this.setState({
-        loader: true
-      })
+      setLoader(true)
     }, 3000);
-  }
+    return () => clearTimeout(timer);
+  }, []);
 
-  // clear intro
-  componentWillUnmount() {
-    clearTimeout()
-  }
-
-  render() { 
     return (
       <div className="app">
-        <Loader loader={this.state.loader} />
+        <Loader loader={loader} />
         <Navbar />
         <Banner />
         <Row title="Trending Now" fetchURL={request.fetchTrending} />
@@ -49,7 +37,7 @@ class App extends Component {
         <Row title="Documentaries" fetchURL={request.fetchDocumentaries} />
       </div>
     )
-  }
 }
 
 export default App;
+

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from './axios.js';
-import './Row.css';
 import Youtube from 'react-youtube';
 import movieTrailer from 'movie-trailer';
+import noPoster from './assets/no-poster.svg';
 
 // poster base URL
-const base_URL = "https://image.tmdb.org/t/p/original/";
+const base_URL = "https://image.tmdb.org/t/p/original";
 
 function Row({ title, fetchURL, isLargeRow }) {
   const [movies, setMovies] = useState([]);
@@ -32,7 +32,6 @@ function Row({ title, fetchURL, isLargeRow }) {
   };
 
   const handleClick = (movie) => {
-    console.log(movie);
     if (trailerUrl) {
       setTrailerUrl('');
     } else {
@@ -47,21 +46,33 @@ function Row({ title, fetchURL, isLargeRow }) {
         })
     };
   };
+  
+  const test = (info) => {
+    if (isLargeRow) {
+      return `${base_URL}${info.poster_path}`
+    } else if (info.backdrop_path) {
+      return `${base_URL}${info.backdrop_path}`
+    } else {
+      return noPoster
+    }
+  }
 
   return (
     <div className="row">
-      <h2 className="row-title">{title}</h2>
+      <h2 className="row-title">{title}<em>See all</em></h2>
       <div className="row-posters">
         {/* Row posters */}
-        {movies.map((movie) => (
-          <div 
+        {movies.map((movie, key) => (
+          <div
+            key={key}
             className="content"
             onClick={() => handleClick(movie)}
           >
             <img
               key={movie.id}
-              className={`row-poster ${isLargeRow && "row-poster-large"}`}
-              src={`${base_URL}${isLargeRow ? movie.poster_path : movie.backdrop_path}`} 
+              className={`row-poster ${isLargeRow ? "row-poster-large" : ''}`}
+              // src={`${base_URL}${isLargeRow ? movie.poster_path : test(movie.backdrop_path)}`}
+              src={test(movie)}
               alt={`${movie.title || movie.name} poster`}
             >
             </img>

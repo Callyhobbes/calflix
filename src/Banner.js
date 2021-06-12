@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
+import PopUp from './PopUp.js';
 import axios from './axios.js';
 import request from './request.js';
-import './Banner.css';
 
 const base_URL = "https://image.tmdb.org/t/p/original/";
 
-function Banner() {
+function Banner(props) {
   const [movie, setMovie] = useState([]);
 
   useEffect(() => {
@@ -22,6 +22,12 @@ function Banner() {
 
   function truncate(string, n) {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
+  }
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
   }
   
   return (
@@ -41,11 +47,17 @@ function Banner() {
         <h3>{truncate(movie?.overview, 150)}</h3>
         {/* {div > 2 buttons} */}
         <div className="banner-buttons">
-          <button className="play"><i class="fas fa-play"></i>Play</button>
-          <button className="info"><i class="fas fa-info"></i>More Info</button>
+          <button className="play" onClick={openModal}><i className="fas fa-play"></i>Play</button>
+          <button className="info" onClick={openModal}><i className="fas fa-info"></i>More Info</button>
         </div>
       </div>
+      {
+        modalIsOpen 
+        ? <PopUp movieDetails={movie} modal={modalIsOpen} action={setIsOpen}/>
+        : null
+      }
     </header>
+    
   )
 }
 
