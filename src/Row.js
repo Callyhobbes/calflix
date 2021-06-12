@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from './axios.js';
-import Youtube from 'react-youtube';
-import movieTrailer from 'movie-trailer';
+// import Youtube from 'react-youtube';
+// import movieTrailer from 'movie-trailer';
 import noPoster from './assets/no-poster.svg';
+import PopUp from './PopUp.js';
 
 // poster base URL
 const base_URL = "https://image.tmdb.org/t/p/original";
 
 function Row({ title, fetchURL, isLargeRow }) {
   const [movies, setMovies] = useState([]);
-  const [trailerUrl, setTrailerUrl] = useState("");
+  const [film, setFilm] = useState([]);
+  // const [trailerUrl, setTrailerUrl] = useState("");
 
   // A snippet of code which runs based on a specific condition/variable
   useEffect(() => {
@@ -22,30 +24,35 @@ function Row({ title, fetchURL, isLargeRow }) {
     fetchData();
   }, [fetchURL]);
 
-  const opts = {
-    height: "500",
-    width: "100%",
-    playerVars: {
-      // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
-    }
-  };
+  // const opts = {
+  //   height: "500",
+  //   width: "100%",
+  //   playerVars: {
+  //     // https://developers.google.com/youtube/player_parameters
+  //     autoplay: 1,
+  //   }
+  // };
+
+  // const handleClick = (movie) => {
+  //   if (trailerUrl) {
+  //     setTrailerUrl('');
+  //   } else {
+  //     movieTrailer(movie?.name || movie?.title || "")
+  //       .then(url => {
+  //         const urlParams = new URLSearchParams(new URL(url).search);
+  //         // https://www.youtube.com/watch?v=thisIsTheEndPoint so get the 'v'
+  //         setTrailerUrl(urlParams.get('v'));
+  //       })
+  //       .catch((error) => {
+  //         console.log(error)
+  //       })
+  //   };
+  // };
 
   const handleClick = (movie) => {
-    if (trailerUrl) {
-      setTrailerUrl('');
-    } else {
-      movieTrailer(movie?.name || movie?.title || "")
-        .then(url => {
-          const urlParams = new URLSearchParams(new URL(url).search);
-          // https://www.youtube.com/watch?v=thisIsTheEndPoint so get the 'v'
-          setTrailerUrl(urlParams.get('v'));
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-    };
-  };
+    setFilm(movie);
+    openModal();
+  }
   
   const test = (info) => {
     if (isLargeRow) {
@@ -55,6 +62,12 @@ function Row({ title, fetchURL, isLargeRow }) {
     } else {
       return noPoster
     }
+  }
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
   }
 
   return (
@@ -81,7 +94,12 @@ function Row({ title, fetchURL, isLargeRow }) {
           </div>
         ))}
       </div>
-      {trailerUrl && <Youtube videoId={trailerUrl} opts={opts}/>}
+      {
+        modalIsOpen
+        ? <PopUp movieDetails={film} modal={modalIsOpen} action={setIsOpen} />
+        : null
+      }
+      {/* {trailerUrl && <Youtube videoId={trailerUrl} opts={opts}/>} */}
     </div>
   )
 }

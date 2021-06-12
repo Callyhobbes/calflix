@@ -46,7 +46,10 @@
   h2, ul, p {
     margin: 10px 0;
   }
-  p span {
+  p:first-of-type {
+    margin-top: 20px;
+  }
+  h4 span {
     color: #777;
     font-size: 1.4rem;
     font-style: italic;
@@ -79,6 +82,34 @@ em {
   font-size: 1.6rem;
   text-decoration: underline;
   margin-left: 8px;
+}
+
+.fail-message {
+  margin: 30px 15px;
+  h2, p {
+    margin: 10px 0;
+  }
+}
+
+h4::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, #000, #000);
+  z-index: 3;
+  animation: wipe 1s linear forwards;
+}
+
+@keyframes wipe {
+  0% {
+    right: 0;
+  }
+  100% {
+    right: -500%;
+  }
 }
 
 @media (max-width: 700px) {

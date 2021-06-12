@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Loader from './Loader.js';
 import Banner from './Banner.js';
 import Row from './Row.js';
+import MyList from './MyList.js';
 import Navbar from './Navbar'
 import request from './request.js';
 import './styling/App.scss'
@@ -23,6 +24,7 @@ function App(props)  {
         <Loader loader={loader} />
         <Navbar />
         <Banner />
+        <MyList title="My List"/>
         <Row title="Trending Now" fetchURL={request.fetchTrending} />
         <Row title="Top Rated" fetchURL={request.fetchTopRated} />
         <Row 

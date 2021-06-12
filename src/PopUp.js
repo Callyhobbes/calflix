@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import axios from 'axios';
+import Keanu from './assets/keanu-min.jpg';
 
 export default function PopUp(props) {
 
@@ -14,10 +15,12 @@ export default function PopUp(props) {
         method: 'GET',
         responseType: 'json',
         params: {
-          t: `${props.movieDetails.name}`
+          t: `${props.movieDetails.name || props.movieDetails.title}`
         }
       }).then((movies) => {
         setSelect(movies.data);
+      }).catch((error) => {
+        console.log(error)
       })
     }, []);
 
@@ -25,14 +28,27 @@ export default function PopUp(props) {
     props.action(false);
   }
 
+    function determineType(info) {
+    if (info.Type === 'series') {
+      if (info.totalSeasons < 2) {
+        return `${info.totalSeasons} season`
+      } else {
+        return `${info.totalSeasons} seasons`
+      }
+    } else {
+      return runTime(info.Runtime);
+    }
+  }
+
   function runTime(info) {
     const textModified = info.split(' ')[0];
     const length = parseInt(textModified);
-
-    if (length < 60) {
+    if (isNaN(length)) {
+      return null
+    } else if (length < 60) {
       return `${length}m`
     } else {
-      const findHrs = length / 60;
+      const findHrs = Math.floor(length / 60);
       const findMins = length % 60;
       if (findMins === 0) {
         return `${findHrs}h`
@@ -41,31 +57,42 @@ export default function PopUp(props) {
     }
   }
 
-  function determineType(info) {
-    if (info.Type === 'series') {
-      if (info.totalSeasons === 1) {
-        return `${info.totalSeasons} season`
-      }
-      return `${info.totalSeasons} seasons`
-    } else {
-      runTime(info.Runtime);
-    }
-  }
-
   console.log(selectMovie);
 
-
-  return (
-    <div>
-      <Modal
-        isOpen={props.modal}
-        onRequestClose={closeModal}
-        ariaHideApp={false}
-        className="Modal"
-        overlayClassName="Overlay"
-      >
-        {
-          selectMovie.Year &&
+  if (selectMovie.Response === 'False') {
+    return (
+      <div>
+        <Modal
+          isOpen={props.modal}
+          onRequestClose={closeModal}
+          ariaHideApp={false}
+          className="Modal"
+          overlayClassName="Overlay"
+        >
+          <Fragment>
+            <img src={Keanu} alt="Keanu Reeves with hands up" />
+            <div className="movie-content">
+              <h2>What an odd find.</h2>
+              <p>It looks like there isn't enough information on this movie currently.</p>
+              <p>Try checking out another movie.</p>
+              <button onClick={closeModal}>
+                <span className="material-icons">close</span>
+              </button>
+            </div>
+          </Fragment>
+        </Modal>
+      </div>
+    )
+  } else if (selectMovie.Year){
+    return (
+      <div>
+        <Modal
+          isOpen={props.modal}
+          onRequestClose={closeModal}
+          ariaHideApp={false}
+          className="Modal"
+          overlayClassName="Overlay"
+        >
           <Fragment>
             {/* Using TMDB API image for better quality */}
             <img src={`${base_URL}${props.movieDetails.backdrop_path}`} alt={selectMovie.Title} />
@@ -73,22 +100,28 @@ export default function PopUp(props) {
               <h2>{selectMovie.Title}</h2>
               <ul>
                 <li>{selectMovie.Year.slice(0, 4)}</li>
-                <li className="border-item">{selectMovie.Rated}</li>
+                <li className="border-item">{selectMovie.Rated !== 'N/A' ? selectMovie.Rated : 'Not Rated'}</li>
                 <li>
                   {determineType(selectMovie)}
                   {/* {selectMovie.Runtime ? runTime(selectMovie.Runtime) : null} */}
                 </li>
               </ul>
               <p>{selectMovie.Plot}</p>
-              <p><span>Cast:</span> {selectMovie.Actors}</p>
-              <p><span>Genres:</span> {selectMovie.Genre}</p>
+              <h4><span>Cast:</span></h4>
+              <p>{selectMovie.Actors}</p>
+              <h4><span>Genres:</span></h4>
+              <p>{selectMovie.Genre}</p>
               <button onClick={closeModal}>
-                <span class="material-icons">close</span>
+                <span className="material-icons">close</span>
               </button>
             </div>
           </Fragment>
-        }
-      </Modal>
-    </div>
-  )
+        </Modal>
+      </div>
+    )
+  } else {
+    return (
+      <div></div>
+    )
+  }
 }
